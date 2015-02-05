@@ -1,0 +1,18 @@
+ <div ng-controller="detailsController">
+  <table class="table table-striped">
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Notes</th>
+    </tr>
+    <tr ng-repeat="book in addressBook">
+      <td>{{book.firstName}}</td>
+      <td>{{book.lastName}}</td>
+      <td>{{book.phone}}</td>
+      <td>{{book.address}}</td>
+      <td>{{book.notes}}</td>
+      </tr>
+  </table>
+</div>

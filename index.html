@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AngularJS: UI-Router Quick Start</title>
+  <link href="app/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body ng-app="myapp" class="container">
+
+  <nav class="navbar navbar-default">
+      <ul class="nav navbar-nav">
+        <li><a data-toggle="tab" ui-sref="form">Form</a></li>
+        <li><a data-toggle="tab" ui-sref="details">Details</a></li>
+      </ul>
+  </nav>
+  <div class="row">
+    <div class="span6">
+      <div class="well" ui-view="mainview"></div>
+    </div>
+  </div>         
+  
+  <script src="app/lib/jquery/dist/jquery.min.js"></script>
+  <script src="app/lib/angular/angular.min.js"></script>
+  <script src="app/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="app/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+  <script src="app/components/controllers/helpController.js"></script>
+  <script src="app/components/controllers/detailsController.js"></script>
+  <script src="app/components/services/addressBookService.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <script type="text/javascript" src="http://code.angularjs.org/1.1.4/angular.min.js"></script>
+    <script type="text/javascript" src="../../../app.js"></script>
+    <script type="text/javascript" src="../controllers/helpController.js"></script>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  </head>
+  <body class="container">
+  
+  <div ng-controller="help">
+    <div class="alert alert-success" ng-show="message">
+	  {{message}}
+	</div>
+   
+    <form name="helpForm" novalidate role="form">
+      <div class="form-group">
+        <label for="name">Your Name </label>
+        <span class="label label-danger" ng-show="helpForm.name.$error.required">Required!</span>
+        
+        <span class="label label-danger" ng-show="helpForm.name.$error.minlength">minlength = 5!</span>
+
+        <input type="text" name="name" ng-model="name" class="form-control" required ng-minlength="5"/>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Your E-mail address</label>
+
+        <input type="email" name="email"  class="form-control" required />  
+      </div>
+
+      <div class="form-group">
+        <label for="subjectList">What is the nature of your request?</label>
+        <span class="label label-danger" ng-show="submitted && helpForm.subjectList.$error.required">Required!</span>
+        <select name="subjectList" ng-model="subjectList" ng-options="value as value for (id, value) in subjectListOptions" class="form-control" required>
+          <option value=""></option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="url">URL of Relevant Page</label>
+        <span class="label label-danger" ng-show="submitted && helpForm.$error.url">Invalid URL format!</span>
+        <input type="url" name="url" ng-model="url" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Description</label>
+        <span class="label label-danger" ng-show="submitted && helpForm.comments.$error.required">Required!</span>
+        <textarea name="comments" ng-model="comments" class="form-control" required></textarea>
+      </div>
+
+      <button ng-click="submit(helpForm)" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+
+  </body>
+</html>
